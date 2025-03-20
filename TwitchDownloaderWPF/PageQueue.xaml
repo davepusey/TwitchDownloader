@@ -137,6 +137,10 @@
                 <Button x:Name="btnUrlList" Content="{lex:Loc UrlList}" Margin="0,11,0,0" Width="165" Click="btnUrlList_Click" Background="{DynamicResource ActionButtonBackground}" Foreground="{DynamicResource ActionButtonText}" BorderBrush="{DynamicResource ActionButtonBorder}"/>
                 <Button x:Name="btnVods" Content="{lex:Loc SearchVods}" Margin="0,8,0,0" Width="165" Click="btnVods_Click" Background="{DynamicResource ActionButtonBackground}" Foreground="{DynamicResource ActionButtonText}" BorderBrush="{DynamicResource ActionButtonBorder}"/>
                 <Button x:Name="btnClips" Content="{lex:Loc SearchClips}" Margin="0,8,0,0" Width="165" Click="btnClips_Click" Background="{DynamicResource ActionButtonBackground}" Foreground="{DynamicResource ActionButtonText}" BorderBrush="{DynamicResource ActionButtonBorder}"/>
+
+                <hc:Divider Content="{lex:Loc QueueManagement}" HorizontalAlignment="Center" Margin="0,10,0,0" FontWeight="Bold" MinWidth="180" LineStroke="{DynamicResource AppDivider}" Foreground="{DynamicResource AppDividerText}"/>
+                <Button x:Name="btnRemoveFinished" Content="{lex:Loc RemoveFinished}" Margin="0,11,0,0" Width="165" Click="btnRemoveFinished_Click" Background="{DynamicResource ActionButtonBackground}" Foreground="{DynamicResource ActionButtonText}" BorderBrush="{DynamicResource ActionButtonBorder}"/>
+                <Button x:Name="btnClearQueue" Content="{lex:Loc ClearQueue}" Margin="0,11,0,0" Width="165" Click="btnClearQueue_Click" Background="{DynamicResource ActionButtonBackground}" Foreground="{DynamicResource ActionButtonText}" BorderBrush="{DynamicResource ActionButtonBorder}"/>
             </StackPanel>
         </StackPanel>
     </Grid>

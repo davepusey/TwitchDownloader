@@ -8,6 +8,8 @@ using TwitchDownloaderWPF.Properties;
 using System.Diagnostics;
 using System.IO;
 using TwitchDownloaderWPF.Services;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace TwitchDownloaderWPF
 {
@@ -382,6 +384,22 @@ namespace TwitchDownloaderWPF
 
                 taskList.Move(index, index + 1);
             }
+        }
+
+        private void btnClearQueue_Click(object sender, RoutedEventArgs e)
+        {
+            List<TwitchTask> tasks = taskList.Where(x => x.Status == TwitchTaskStatus.Ready).ToList();
+            foreach (TwitchTask task in tasks)
+            {
+                task.ChangeStatus(TwitchTaskStatus.Canceled);
+                RemoveTask(task);
+            }
+        }
+
+        private void btnRemoveFinished_Click(object sender, RoutedEventArgs e)
+        {
+            List<TwitchTask> tasks = taskList.Where(x => x.Status == TwitchTaskStatus.Finished).ToList();
+            foreach (TwitchTask task in tasks) RemoveTask(task);
         }
     }
 }
