@@ -733,20 +733,23 @@ namespace TwitchDownloaderWPF
 
         private void checkChat_Checked(object sender, RoutedEventArgs e)
         {
-            checkRender.IsEnabled = true;
-            radioJson.IsEnabled = true;
-            radioTxt.IsEnabled = true;
-            radioHTML.IsEnabled = true;
-            checkEmbed.IsEnabled = true;
-            RadioCompressionNone.IsEnabled = true;
-            RadioCompressionGzip.IsEnabled = true;
-            try
+            if (checkRender != null)
             {
-                var appTextBrush = (Brush)Application.Current.Resources["AppText"];
-                TextDownloadFormat.Foreground = appTextBrush;
-                TextCompression.Foreground = appTextBrush;
+                checkRender.IsEnabled = true;
+                radioJson.IsEnabled = true;
+                radioTxt.IsEnabled = true;
+                radioHTML.IsEnabled = true;
+                checkEmbed.IsEnabled = true;
+                RadioCompressionNone.IsEnabled = true;
+                RadioCompressionGzip.IsEnabled = true;
+                try
+                {
+                    var appTextBrush = (Brush)Application.Current.Resources["AppText"];
+                    TextDownloadFormat.Foreground = appTextBrush;
+                    TextCompression.Foreground = appTextBrush;
+                }
+                catch { /* Ignored */ }
             }
-            catch { /* Ignored */ }
         }
 
         private void checkChat_Unchecked(object sender, RoutedEventArgs e)
