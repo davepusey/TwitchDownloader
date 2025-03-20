@@ -42,6 +42,8 @@ namespace TwitchDownloaderWPF
             }
             btnNext.IsEnabled = false;
             btnPrev.IsEnabled = false;
+            btnNextTen.IsEnabled = false;
+            btnPrevTen.IsEnabled = false;
         }
 
         private async void btnChannel_Click(object sender, RoutedEventArgs e)
@@ -152,12 +154,14 @@ namespace TwitchDownloaderWPF
                     }
 
                     btnPrev.IsEnabled = cursorIndex > 0;
+                    btnPrevTen.IsEnabled = cursorIndex > 0;
                     if (res.data.user.videos.pageInfo.hasNextPage)
                     {
                         string newCursor = res.data.user.videos.edges.FirstOrDefault()?.cursor;
                         if (newCursor is not null)
                         {
                             btnNext.IsEnabled = true;
+                            btnNextTen.IsEnabled = true;
                             if (!cursorList.Contains(newCursor))
                             {
                                 cursorList.Add(newCursor);
@@ -219,12 +223,14 @@ namespace TwitchDownloaderWPF
                     }
 
                     btnPrev.IsEnabled = cursorIndex > 0;
+                    btnPrevTen.IsEnabled = cursorIndex > 0;
                     if (res.data.user.clips.pageInfo.hasNextPage)
                     {
                         string newCursor = res.data.user.clips.edges.FirstOrDefault(x => x.cursor != null)?.cursor;
                         if (newCursor is not null)
                         {
                             btnNext.IsEnabled = true;
+                            btnNextTen.IsEnabled = true;
                             if (!cursorList.Contains(newCursor))
                             {
                                 cursorList.Add(newCursor);
@@ -259,6 +265,8 @@ namespace TwitchDownloaderWPF
         {
             btnNext.IsEnabled = false;
             btnPrev.IsEnabled = false;
+            btnNextTen.IsEnabled = false;
+            btnPrevTen.IsEnabled = false;
             if (cursorIndex < cursorList.Count - 1)
             {
                 cursorIndex++;
@@ -271,9 +279,45 @@ namespace TwitchDownloaderWPF
         {
             btnNext.IsEnabled = false;
             btnPrev.IsEnabled = false;
+            btnNextTen.IsEnabled = false;
+            btnPrevTen.IsEnabled = false;
             if (cursorIndex > 0)
             {
                 cursorIndex--;
+            }
+
+            await UpdateList();
+        }
+
+        private async void btnNextTen_Click(object sender, RoutedEventArgs e)
+        {
+            btnNext.IsEnabled = false;
+            btnPrev.IsEnabled = false;
+            btnNextTen.IsEnabled = false;
+            btnPrevTen.IsEnabled = false;
+            for (int i = 0; i < 10; i++)
+            {
+                if (cursorIndex < cursorList.Count - 1)
+                {
+                    cursorIndex++;
+                }
+            }
+
+            await UpdateList();
+        }
+
+        private async void btnPrevTen_Click(object sender, RoutedEventArgs e)
+        {
+            btnNext.IsEnabled = false;
+            btnPrev.IsEnabled = false;
+            btnNextTen.IsEnabled = false;
+            btnPrevTen.IsEnabled = false;
+            for (int i = 0; i < 10; i++)
+            {
+                if (cursorIndex > 0)
+                {
+                    cursorIndex--;
+                }
             }
 
             await UpdateList();

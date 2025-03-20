@@ -102,8 +102,10 @@
             </Label>
             <Button x:Name="btnSelectAll" Content="{lex:Loc SelectAll}" Margin="5,0,0,3" MinWidth="80" Height="30" Click="btnSelectAll_Click" Background="{DynamicResource ActionButtonBackground}" Foreground="{DynamicResource ActionButtonText}" BorderBrush="{DynamicResource ActionButtonBorder}"/>
         </StackPanel>
+        <Button x:Name="btnPrevTen" Content="10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="34" Margin="0,0,160,4" Click="btnPrevTen_Click" Background="{DynamicResource ActionButtonBackground}" Foreground="{DynamicResource ActionButtonText}" BorderBrush="{DynamicResource ActionButtonBorder}"/>
         <Button x:Name="btnPrev" Content="&lt;-" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="34" Margin="0,0,80,4" Click="btnPrev_Click" Background="{DynamicResource ActionButtonBackground}" Foreground="{DynamicResource ActionButtonText}" BorderBrush="{DynamicResource ActionButtonBorder}"/>
-        <Button x:Name="btnNext" Content="->" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="34" Margin="80,0,0,4" Click="btnNext_Click" Background="{DynamicResource ActionButtonBackground}" Foreground="{DynamicResource ActionButtonText}" BorderBrush="{DynamicResource ActionButtonBorder}"/>
+        <Button x:Name="btnNext" Content="-&gt;" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="34" Margin="80,0,0,4" Click="btnNext_Click" Background="{DynamicResource ActionButtonBackground}" Foreground="{DynamicResource ActionButtonText}" BorderBrush="{DynamicResource ActionButtonBorder}"/>
+        <Button x:Name="btnNextTen" Content="10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="34" Margin="160,0,0,4" Click="btnNextTen_Click" Background="{DynamicResource ActionButtonBackground}" Foreground="{DynamicResource ActionButtonText}" BorderBrush="{DynamicResource ActionButtonBorder}"/>
         <Button x:Name="btnQueue" Content="{lex:Loc AddToQueue}" HorizontalAlignment="Right" Margin="0,0,10,4" VerticalAlignment="Bottom" MinWidth="102" Height="36" Click="btnQueue_Click" Background="{DynamicResource ActionButtonBackground}" Foreground="{DynamicResource ActionButtonText}" BorderBrush="{DynamicResource ActionButtonBorder}"/>
     </Grid>
 </Window>
